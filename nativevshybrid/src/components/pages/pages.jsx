@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import styles from "./pages.module.scss";
+import {Instrucciones} from "../instrucciones/instrucciones";
 
 export function Pages(props) {
+  const [show, setShow] = useState(true);
+  const [showIns,setShowIns] = useState(false);
+
   return (
     <div className={styles.mainContainer}>
-      <div className={styles.wrapper}>
+      {
+        show ?
+        <div className={styles.wrapper}>
         <span className={styles.title}>Hybrid vs Native</span>
         <div className={styles.input}>
           <input type="text" placeholder="Ingrese tu nombre de jugador" />
         </div>
-        <div className={styles.button}>Iniciar juego</div>
+        <div className={styles.button} onClick={()=> {setShow(!show); setShowIns(!showIns)}}>Iniciar juego</div>
         <div className={styles.scoreboard}>
           <span className={styles.subtitle}>Top 3</span>
           <div className={styles.players}>
@@ -29,7 +35,12 @@ export function Pages(props) {
             </table>
           </div>
         </div>
-      </div>
+        </div> : null
+      }
+      {
+        showIns ?
+        <Instrucciones/>:null
+      }
     </div>
   );
 }

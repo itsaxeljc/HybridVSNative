@@ -63,7 +63,17 @@ td {
   text-align: center;
   letter-spacing: -0.03em;
   color: #ffffff;
+
+  // transition
+  transition: 1s;
+
+  &:hover {
+    border: 1px solid rgba(255,255,255,0.8);
+    transform: translateY(-3px);
+  }
 }
+
+
 
 // fonts
 
@@ -90,6 +100,7 @@ td {
   font-size: 64px;
   line-height: 77px;
   text-align: center;
+  max-width: 80%;
 }
 
 .subtitle {
@@ -115,8 +126,15 @@ input {
   font-style: normal;
   font-weight: 500;
   font-size: 21px;
-  color: #d7d7d7;
+  color: #ffffff;
   user-select: none;
+
+  //transition
+  transition: 1s;
+
+  &:focus{
+    border: 1px solid rgba(255,255,255,0.8);
+  }
 }
 
 input::placeholder {
