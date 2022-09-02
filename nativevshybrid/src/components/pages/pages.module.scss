@@ -21,6 +21,18 @@
   align-items: flex-start;
 }
 
+.points {
+  position: absolute;
+  top: calc(50px + 2vmin);
+  left: calc(50px + 2vmin);
+}
+
+.timer {
+  position: absolute;
+  top: calc(50px + 2vmin);
+  right: calc(50px + 2vmin);
+}
+
 // table
 td {
   padding-top: 12px;
@@ -68,15 +80,12 @@ td {
   transition: 1s;
 
   &:hover {
-    border: 1px solid rgba(255,255,255,0.8);
+    border: 1px solid rgba(255, 255, 255, 0.8);
     transform: translateY(-3px);
   }
 }
 
-
-
 // fonts
-
 .title,
 .subtitle {
   font-family: "Inter";
@@ -132,8 +141,8 @@ input {
   //transition
   transition: 1s;
 
-  &:focus{
-    border: 1px solid rgba(255,255,255,0.8);
+  &:focus {
+    border: 1px solid rgba(255, 255, 255, 0.8);
   }
 }
 
