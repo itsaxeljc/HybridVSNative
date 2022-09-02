@@ -18,7 +18,9 @@ export function Instrucciones(props) {
         <div className={baseStyle.button} onClick = {() => {setShow(!show); setShowQ(!showQ)}}>Jugar</div>
       </div> : null
     } {
-        showQ ? <Pregunta></Pregunta>:null
+        showQ ? <Pregunta preguntas={["Mayor seguridad","Mayor rapidez",
+        "Mejor integración","Una sola base de código"]} 
+        temps={5000}></Pregunta>:null
     }
     </div> 
     );
