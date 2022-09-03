@@ -1,0 +1,21 @@
+.ins{
+    width: 325px;
+    height: 321px;
+    background: rgba(116, 116, 116, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(40px);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p{
+        font-family: Inter-Light;
+        width: 90%;
+        font-size: 21px;
+        text-align: center;
+        letter-spacing: -0.03em;
+        color: #FFFFFF;
+        font-weight: 550;
+    }
+}
