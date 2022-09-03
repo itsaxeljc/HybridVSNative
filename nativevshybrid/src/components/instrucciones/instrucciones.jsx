@@ -41,14 +41,38 @@ export function Instrucciones(props) {
             "Mayor rapidez",
             "Mejor integración",
             "Una sola base de código",
-            "Mejor experiencia de usario",
+            "Mejor experiencia de usuario",
             "Menor costo",
             "Tiempo de desarrollo más corto",
             "Alto nivel de personalización",
             "Mantenimiento complejo",
             "Escalabilidad",
           ]}
-          temps={5000}
+          respuestasNativa={[
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1
+          ]}
+          respuestasHibrida={[
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0
+          ]}
+          temps={5}
         ></Pregunta>
       ) : null}
     </div>

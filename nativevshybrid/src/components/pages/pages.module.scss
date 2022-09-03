@@ -38,7 +38,7 @@ td {
   padding-top: 12px;
   padding-bottom: 12px;
   // font
-  font-family: "Inter";
+  font-family: "Inter",Helvetica;
   font-style: normal;
   font-weight: 600;
   font-size: 21px;
@@ -67,7 +67,7 @@ td {
   justify-content: center;
   cursor: pointer;
   // font
-  font-family: "Inter";
+  font-family: "Inter",Helvetica;
   font-style: normal;
   font-weight: 500;
   font-size: 32px;
@@ -88,7 +88,7 @@ td {
 // fonts
 .title,
 .subtitle {
-  font-family: "Inter";
+  font-family: "Inter", Helvetica;
   font-style: normal;
   background: linear-gradient(
       104.32deg,
@@ -101,7 +101,6 @@ td {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
 }
 
 .title {
@@ -131,7 +130,7 @@ input {
   /* Note: backdrop-filter has minimal browser support */
   border-radius: 10px;
   // font
-  font-family: "Inter";
+  font-family: "Inter",Helvetica;
   font-style: normal;
   font-weight: 500;
   font-size: 21px;
