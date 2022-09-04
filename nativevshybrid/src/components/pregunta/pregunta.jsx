@@ -21,6 +21,8 @@ export function Pregunta(props) {
 
   const [answers, setAnswers] = useState([]);
 
+  var gameOver = false;
+
   //Timer controls
   useEffect(() => {
     timer = setInterval(() => {
@@ -31,11 +33,11 @@ export function Pregunta(props) {
         setSeconds(temps);
       }
       if (count === preguntas.length + 1) {
-        setShow(!show);
+        setShow(false);
         restart();
         stop();
-        setCount(1);
-        setShowFinal(!showFinal);
+        setShowFinal(true);
+        console.log("timer restarted");
       }
     }, 1000);
     return () => clearInterval(timer);

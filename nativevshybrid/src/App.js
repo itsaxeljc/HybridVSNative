@@ -1,7 +1,6 @@
-import './App.scss';
-import {Inicio} from './components/inicio/inicio';
-// import { insertNewTop, getUser} from './services/firebaseDB';
-
+import "./App.scss";
+import { Inicio } from "./components/inicio/inicio";
+import { insertNewTop, getUser } from "./services/firebaseDB";
 
 // const newTop={
 //   nombre:'Pedro',
@@ -10,11 +9,9 @@ import {Inicio} from './components/inicio/inicio';
 //   pointsRef:120,
 // };
 // insertNewTop(newTop);
-// getUser();
+//getUser();
 function App() {
-  return (
-    <Inicio></Inicio>
-  );
+  return <Inicio></Inicio>;
 }
 
 export default App;
