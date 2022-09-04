@@ -4,7 +4,7 @@ import { Instrucciones } from "../instrucciones/instrucciones";
 import { db } from "../../services/firebase-config";
 import { collection, getDocs } from "firebase/firestore";
 
-export function Pages(props) {
+export function Pages() {
   const [show, setShow] = useState(true);
   const [showIns, setShowIns] = useState(false);
   const [player, setPlayerList] = useState([]);
@@ -16,7 +16,8 @@ export function Pages(props) {
       setPlayerList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getPlayers();
-  });
+    console.log(player);
+  }, []);
 
   return (
     <div className={styles.mainContainer}>
