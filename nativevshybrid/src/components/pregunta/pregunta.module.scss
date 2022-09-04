@@ -6,10 +6,76 @@
   justify-content: space-around;
   gap: 71px;
   margin-top: -150px;
+
+  @media (max-width:400px){
+    scale: 0.8;
+    gap: 10%;
+  }
+
+  @media (max-width:395px){
+      scale: 0.8;
+      gap: 40px;
+  }
+
+  @media (max-height:795px){
+    margin-top: -10%;
+  }
 }
 
 .timerIcon {
   width: 45px;
   height: 45px;
-  //background: url("../../assets/timer_1s.svg");
+  
+  @media (max-width:475px){
+    scale: 0.8;
+  }
+
+  @media (max-width:375px){
+      scale: 0.7;
+  }
+
+  @media (max-width:325px){
+    scale: 0.55;
+}
+}
+
+// fonts
+.title {
+  font-family: "Inter", Helvetica;
+  font-style: normal;
+  background: linear-gradient(
+      104.32deg,
+      #fcf5c4 -2.65%,
+      #dd5387 36.91%,
+      #9c63b7 61.32%,
+      #284c91 101.32%
+    ),
+    #ffffff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 77px;
+  text-align: center;
+  max-width: 90%;
+
+  @media (max-width:540px){
+    font-size: 54px;
+  }
+
+  @media (max-width:475px){
+    font-size: 44px;
+    line-height: 57px;
+    margin-bottom: 15%;
+  }
+
+  @media (max-width:325px){
+    font-size: 32px;
+    line-height: 37px;
+    margin-bottom: 15%;
+  }
 }

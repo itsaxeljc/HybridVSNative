@@ -57,7 +57,7 @@ export function Instrucciones(props) {
             0,
             0,
             1,
-            0,
+            1,
             1
           ]}
           respuestasHibrida={[
@@ -69,10 +69,10 @@ export function Instrucciones(props) {
             1,
             1,
             0,
-            1,
+            0,
             0
           ]}
-          temps={5}
+          temps={5000}
         ></Pregunta>
       ) : null}
     </div>

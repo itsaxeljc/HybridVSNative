@@ -66,16 +66,12 @@ export function Pregunta(props) {
                 styles={{
                   path: {
                     stroke: "#358BB1",
-                  },
-                  text: {
-                    fill: "#ffffff",
-                    fontSize: "16px",
-                  },
+                  }
                 }}
               />
             </div>
           </div>
-          <span className={baseStyle.title} style={style}>
+          <span className={styles.title} style={style}>
             {question}
           </span>
           <div className={styles.options}>

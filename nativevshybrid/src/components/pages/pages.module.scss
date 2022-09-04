@@ -19,6 +19,14 @@
   display: flex;
   flex-flow: column;
   align-items: flex-start;
+
+  @media (max-width:375px){
+    scale: 0.9;
+  }
+
+  @media (max-width:325px){
+    scale: 0.8;
+  }
 }
 
 .points {
@@ -83,6 +91,15 @@ td {
     border: 1px solid rgba(255, 255, 255, 0.8);
     transform: translateY(-3px);
   }
+
+  @media (max-width:375px){
+    scale: 0.95;
+  }
+
+  @media (max-width:325px){
+    scale: 0.88;
+    margin-top: 5%;
+  }
 }
 
 // fonts
@@ -109,12 +126,20 @@ td {
   line-height: 77px;
   text-align: center;
   max-width: 80%;
+
+  @media (max-width:375px){
+    font-size: 48px;
+  }
 }
 
 .subtitle {
   font-weight: 600;
   font-size: 32px;
   line-height: 39px;
+
+  @media (max-width:375px){
+    font-size: 24px;
+  }
 }
 
 // input
@@ -142,6 +167,14 @@ input {
 
   &:focus {
     border: 1px solid rgba(255, 255, 255, 0.8);
+  }
+
+  @media (max-width:375px){
+    scale: 0.95;
+  }
+
+  @media (max-width:325px){
+    scale: 0.88;
   }
 }
 
