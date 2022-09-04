@@ -27,7 +27,7 @@ export function Ending(props) {
     "Híbrida",
     "Nativa",
     "Nativa",
-    "Híbrida",
+    "Nativa",
   ];
 
   const points = props.points;
@@ -48,7 +48,7 @@ export function Ending(props) {
     <div className={baseStyle.mainContainer}>
       {show ? (
         <div className={baseStyle.wrapper}>
-          <span className={baseStyle.title}>
+          <span className={styles.title}>
             ¡Has obtenido
             <br />
             {points} puntos!
@@ -107,7 +107,7 @@ export function Ending(props) {
             })}
           </div>
           <div
-            className={baseStyle.button}
+            className={styles.button}
             onClick={() => {
               setShow(!show);
               setShowI(!showI);

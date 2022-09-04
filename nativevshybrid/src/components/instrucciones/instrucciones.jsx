@@ -24,7 +24,7 @@ export function Instrucciones(props) {
             </p>
           </span>
           <div
-            className={baseStyle.button}
+            className={styles.button}
             onClick={() => {
               setShow(!show);
               setShowQ(!showQ);
@@ -57,7 +57,7 @@ export function Instrucciones(props) {
             0,
             0,
             1,
-            0,
+            1,
             1
           ]}
           respuestasHibrida={[
@@ -69,7 +69,7 @@ export function Instrucciones(props) {
             1,
             1,
             0,
-            1,
+            0,
             0
           ]}
           temps={5}
