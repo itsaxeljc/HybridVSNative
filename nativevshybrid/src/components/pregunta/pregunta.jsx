@@ -4,8 +4,13 @@ import baseStyle from "../pages/pages.module.scss";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { Ending } from "../ending/ending";
+import { insertNewTop } from "../../services/firebaseDB";
+
+
+let pts=0;
 
 export function Pregunta(props) {
+  const player = {...props.player}
   const preguntas = props.preguntas;
   const respuestasNativa = props.respuestasNativa;
   const respuestasHibrida = props.respuestasHibrida;
@@ -17,12 +22,12 @@ export function Pregunta(props) {
   const [showFinal, setShowFinal] = useState(false);
   const [seconds, setSeconds] = useState(5);
   const [points, setPoints] = useState(0);
-  var timer;
+  let timer;
+
 
   const [answers, setAnswers] = useState([]);
 
-  var gameOver = false;
-
+  let gameOver = false;
   //Timer controls
   useEffect(() => {
     timer = setInterval(() => {
@@ -79,11 +84,16 @@ export function Pregunta(props) {
               className={baseStyle.button}
               onClick={() => {
                 setPoints(points + seconds * respuestasNativa[count - 1]);
+                console.log(points + seconds * respuestasNativa[count - 1]);
+                pts = points;
                 console.log(answers);
                 setAnswers((answers) => answers.concat("Nativa"));
                 restart();
                 setCount(count + 1);
                 if (count === preguntas.length) {
+                  validatePositionsTop(answers.length,pts,player,props.namePlayer);
+                  console.log(pts);
+                  pts=0;
                   setShow(!show);
                   restart();
                   stop();
@@ -99,11 +109,17 @@ export function Pregunta(props) {
               className={baseStyle.button}
               onClick={() => {
                 setPoints(points + seconds * respuestasHibrida[count - 1]);
+                console.log(points + seconds * respuestasNativa[count - 1]);
+                pts = points;
                 console.log(answers);
                 setAnswers((answers) => answers.concat("Híbrida"));
                 restart();
                 setCount(count + 1);
                 if (count === preguntas.length) {
+                  // console.log(pts);
+                  validatePositionsTop(answers.length,pts,player,props.namePlayer);
+                  console.log(pts);
+                  pts=0;
                   setShow(!show);
                   restart();
                   stop();
@@ -122,3 +138,20 @@ export function Pregunta(props) {
     </div>
   );
 }
+
+const validatePositionsTop = (points,pointsRef,player,namePlayer) => {
+  console.log(player);
+  for (let  index= 0; index < 3; index++) {
+    if (points >= player[index].points)
+    {
+      if(pointsRef >= player[index].pointsRef){
+        player[index].nombre=namePlayer;
+        player[index].pointsRef=pointsRef;
+        player[index].points=points;
+          insertNewTop(player[index]);
+          return;
+      }
+    }
+  }
+}
+

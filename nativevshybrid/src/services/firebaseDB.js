@@ -18,7 +18,7 @@ export async function getUser() {
 export async function insertNewTop(newTop) {
   try {
     const collectionRef = collection(db, "QuizGamesTop");
-    const docRef = doc(collectionRef, newTop.top);
+    const docRef = doc(collectionRef, newTop.top+'');
     const resp = await setDoc(docRef, newTop);
     console.log(resp);
   } catch (e) {

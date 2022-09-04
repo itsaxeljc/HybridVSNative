@@ -3,7 +3,7 @@ import styles from "./instrucciones.module.scss";
 import baseStyle from "../pages/pages.module.scss";
 import { Pregunta } from "../pregunta/pregunta";
 
-export function Instrucciones(props) {
+export function Instrucciones({player, namePlayer}) {
   const [show, setShow] = useState(true);
   const [showQ, setShowQ] = useState(false);
 
@@ -35,7 +35,7 @@ export function Instrucciones(props) {
         </div>
       ) : null}
       {showQ ? (
-        <Pregunta
+        <Pregunta player={player} namePlayer={namePlayer}
           preguntas={[
             "Mayor seguridad",
             "Mayor rapidez",
