@@ -1,9 +1,8 @@
-import React, { useState } from "react";
 import styles from "./inicio.module.scss";
 import Spline from "@splinetool/react-spline";
 import { Pages } from "../pages/pages";
 
-export function Inicio(props) {
+export function Inicio() {
   return (
     <div className={styles.mainContainer}>
       <Spline
