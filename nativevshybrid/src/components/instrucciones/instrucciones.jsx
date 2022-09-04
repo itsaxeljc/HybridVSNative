@@ -24,7 +24,7 @@ export function Instrucciones(props) {
             </p>
           </span>
           <div
-            className={baseStyle.button}
+            className={styles.button}
             onClick={() => {
               setShow(!show);
               setShowQ(!showQ);
