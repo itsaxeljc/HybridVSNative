@@ -72,7 +72,7 @@ export function Instrucciones(props) {
             0,
             0
           ]}
-          temps={5000}
+          temps={5}
         ></Pregunta>
       ) : null}
     </div>
