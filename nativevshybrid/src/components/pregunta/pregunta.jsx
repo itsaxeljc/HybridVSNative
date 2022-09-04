@@ -7,7 +7,6 @@ import { Ending } from "../ending/ending";
 import { insertNewTop } from "../../services/firebaseDB";
 
 
-let pts=0;
 
 export function Pregunta(props) {
   const player = {...props.player}
@@ -28,7 +27,6 @@ export function Pregunta(props) {
   const [answers, setAnswers] = useState([]);
 
   let gameOver = false;
-  //Timer controls
   useEffect(() => {
     timer = setInterval(() => {
       setSeconds(seconds - 1);
@@ -55,6 +53,7 @@ export function Pregunta(props) {
   const stop = () => {
     clearInterval(timer);
   };
+
 
   return (
     <div className={baseStyle.mainContainer}>
@@ -83,17 +82,22 @@ export function Pregunta(props) {
             <div
               className={baseStyle.button}
               onClick={() => {
+
+
                 setPoints(points + seconds * respuestasNativa[count - 1]);
-                console.log(points + seconds * respuestasNativa[count - 1]);
-                pts = points;
-                console.log(answers);
                 setAnswers((answers) => answers.concat("Nativa"));
-                restart();
+        
+
+                console.log(points + seconds * respuestasNativa[count - 1]);
+                console.log(answers);
+                console.log( 'count === preguntas.length ' + (count === preguntas.length) );
+
                 setCount(count + 1);
+                console.log('Native');
+                restart();
                 if (count === preguntas.length) {
-                  validatePositionsTop(answers.length,pts,player,props.namePlayer);
-                  console.log(pts);
-                  pts=0;
+                  console.log(answers);
+                  validatePositionsTop(points,player,props.namePlayer);
                   setShow(!show);
                   restart();
                   stop();
@@ -101,6 +105,7 @@ export function Pregunta(props) {
                   setShowFinal(!showFinal);
                 }
                 setQuestion(preguntas[count]);
+               
               }}
             >
               Nativa
@@ -109,17 +114,20 @@ export function Pregunta(props) {
               className={baseStyle.button}
               onClick={() => {
                 setPoints(points + seconds * respuestasHibrida[count - 1]);
-                console.log(points + seconds * respuestasNativa[count - 1]);
-                pts = points;
-                console.log(answers);
                 setAnswers((answers) => answers.concat("Híbrida"));
-                restart();
+                if(count === preguntas.length){
+                  setAnswers((answers) => answers.concat("Híbrida"));
+                }
+
+                console.log(points + seconds * respuestasNativa[count - 1]);
+                console.log(answers);
+                console.log( 'count === preguntas.length ' + (count === preguntas.length) );
+
                 setCount(count + 1);
+                
+                restart();
                 if (count === preguntas.length) {
-                  // console.log(pts);
-                  validatePositionsTop(answers.length,pts,player,props.namePlayer);
-                  console.log(pts);
-                  pts=0;
+                  validatePositionsTop(points,player,props.namePlayer);
                   setShow(!show);
                   restart();
                   stop();
@@ -139,18 +147,18 @@ export function Pregunta(props) {
   );
 }
 
-const validatePositionsTop = (points,pointsRef,player,namePlayer) => {
+const validatePositionsTop = (points,player,namePlayer) => {
+  
   console.log(player);
   for (let  index= 0; index < 3; index++) {
     if (points >= player[index].points)
     {
-      if(pointsRef >= player[index].pointsRef){
+     
         player[index].nombre=namePlayer;
-        player[index].pointsRef=pointsRef;
         player[index].points=points;
-          insertNewTop(player[index]);
-          return;
-      }
+        insertNewTop(player[index]);
+        return;
+      
     }
   }
 }
