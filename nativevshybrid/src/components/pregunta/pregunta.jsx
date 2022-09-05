@@ -4,12 +4,12 @@ import baseStyle from "../pages/pages.module.scss";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { Ending } from "../ending/ending";
-import { insertNewTop } from "../../services/firebaseDB";
 
 
 
 export function Pregunta(props) {
   const player = {...props.player}
+  const namePlayer = props.namePlayer;
   const preguntas = props.preguntas;
   const respuestasNativa = props.respuestasNativa;
   const respuestasHibrida = props.respuestasHibrida;
@@ -82,30 +82,20 @@ export function Pregunta(props) {
             <div
               className={baseStyle.button}
               onClick={() => {
-
-
                 setPoints(points + seconds * respuestasNativa[count - 1]);
                 setAnswers((answers) => answers.concat("Nativa"));
-        
-
-                console.log(points + seconds * respuestasNativa[count - 1]);
-                console.log(answers);
-                console.log( 'count === preguntas.length ' + (count === preguntas.length) );
-
-                setCount(count + 1);
-                console.log('Native');
                 restart();
+
                 if (count === preguntas.length) {
                   console.log(answers);
-                  validatePositionsTop(points,player,props.namePlayer);
                   setShow(!show);
                   restart();
                   stop();
                   setCount(1);
                   setShowFinal(!showFinal);
                 }
+                setCount(count + 1);
                 setQuestion(preguntas[count]);
-               
               }}
             >
               Nativa
@@ -115,25 +105,16 @@ export function Pregunta(props) {
               onClick={() => {
                 setPoints(points + seconds * respuestasHibrida[count - 1]);
                 setAnswers((answers) => answers.concat("Híbrida"));
-                if(count === preguntas.length){
-                  setAnswers((answers) => answers.concat("Híbrida"));
-                }
-
-                console.log(points + seconds * respuestasNativa[count - 1]);
-                console.log(answers);
-                console.log( 'count === preguntas.length ' + (count === preguntas.length) );
-
-                setCount(count + 1);
-                
                 restart();
-                if (count === preguntas.length) {
-                  validatePositionsTop(points,player,props.namePlayer);
+
+                if(count === preguntas.length){
                   setShow(!show);
                   restart();
                   stop();
                   setCount(1);
                   setShowFinal(!showFinal);
                 }
+                setCount(count + 1);
                 setQuestion(preguntas[count]);
               }}
             >
@@ -142,24 +123,8 @@ export function Pregunta(props) {
           </div>
         </div>
       ) : null}
-      {showFinal ? <Ending points={points} answers={answers} /> : null}
+      {showFinal ? <Ending points={points} answers={answers} player={player} namePlayer={namePlayer}/> : null}
     </div>
   );
-}
-
-const validatePositionsTop = (points,player,namePlayer) => {
-  
-  console.log(player);
-  for (let  index= 0; index < 3; index++) {
-    if (points >= player[index].points)
-    {
-     
-        player[index].nombre=namePlayer;
-        player[index].points=points;
-        insertNewTop(player[index]);
-        return;
-      
-    }
-  }
 }
 

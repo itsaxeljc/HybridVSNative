@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./ending.module.scss";
 import baseStyle from "../pages/pages.module.scss";
 import { Pages } from "../pages/pages";
+import { insertNewTop } from "../../services/firebaseDB";
 
 export function Ending(props) {
   const questions = [
@@ -32,6 +33,8 @@ export function Ending(props) {
 
   const points = props.points;
   const answers = props.answers;
+  const namePlayer = props.namePlayer;
+  const player = props.player;
   const [question, setQuestion] = useState(0);
   const [show, setShow] = useState(true);
   const [showI, setShowI] = useState(false);
@@ -109,6 +112,7 @@ export function Ending(props) {
           <div
             className={styles.button}
             onClick={() => {
+              validatePositionsTop(points,player,namePlayer);
               setShow(!show);
               setShowI(!showI);
             }}
@@ -120,4 +124,18 @@ export function Ending(props) {
       {showI ? <Pages /> : null}
     </div>
   );
+}
+
+const validatePositionsTop = (points,player,namePlayer) => {
+  console.log(player);
+  for (let  index= 0; index < 3; index++) {
+    if (points >= player[index].points)
+    {
+        player[index].nombre=namePlayer;
+        player[index].points=points;
+        insertNewTop(player[index]);
+        return;
+      
+    }
+  }
 }
