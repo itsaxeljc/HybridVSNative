@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/HybridVSNative/static/css/main.d37d923f.css",
-    "main.js": "/HybridVSNative/static/js/main.61d8afe4.js",
+    "main.js": "/HybridVSNative/static/js/main.4dbdcf1d.js",
     "static/js/526.26095e41.chunk.js": "/HybridVSNative/static/js/526.26095e41.chunk.js",
     "static/js/232.bacd7b9d.chunk.js": "/HybridVSNative/static/js/232.bacd7b9d.chunk.js",
     "static/js/787.78ce65ad.chunk.js": "/HybridVSNative/static/js/787.78ce65ad.chunk.js",
@@ -9,13 +9,13 @@
     "static/media/Inter-Regular.otf": "/HybridVSNative/static/media/Inter-Regular.a416f4674fad5f019461.otf",
     "index.html": "/HybridVSNative/index.html",
     "main.d37d923f.css.map": "/HybridVSNative/static/css/main.d37d923f.css.map",
-    "main.61d8afe4.js.map": "/HybridVSNative/static/js/main.61d8afe4.js.map",
+    "main.4dbdcf1d.js.map": "/HybridVSNative/static/js/main.4dbdcf1d.js.map",
     "526.26095e41.chunk.js.map": "/HybridVSNative/static/js/526.26095e41.chunk.js.map",
     "232.bacd7b9d.chunk.js.map": "/HybridVSNative/static/js/232.bacd7b9d.chunk.js.map",
     "787.78ce65ad.chunk.js.map": "/HybridVSNative/static/js/787.78ce65ad.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d37d923f.css",
-    "static/js/main.61d8afe4.js"
+    "static/js/main.4dbdcf1d.js"
   ]
 }
